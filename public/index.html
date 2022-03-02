@@ -1,17 +1,72 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
+<head>
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Cider Collective">
+    <meta name="description" content="Cider Remote - A quick and easy solution to controlling your listening.">
+    <meta name="referrer" content="unsafe-url">
+    <meta name="robots" content="index, follow">
+    <!-- SPEED -->
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- LINK -->
+    <link rel="me" href="https://github.com/ciderapp">
+    <link rel="canonical" href="#">
+    <link rel="icon" type="image/png" href="https://github.com/ciderapp/cider.sh/blob/main/assets/img/Cider-Logo.png?raw=true" sizes="48x48">
+    <!-- PERFORMANCE -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="preload" as="style" href="style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cider.sh/in-app-bg-change.js" type="module"></script>
+    <!-- TITLE -->
+    <title>Pair Remote</title>
+</head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <header role="banner" class="ui-section-header">
+        <div class="ui-layout-container">
+            <div class="ui-section-header__layout ui-layout-flex">
+                <!-- LOGO -->
+                <a href="/" role="link" aria-label="Remote" class="ui-component-button ui-component-button-small ui-component-button-primary">Home</a>
+                <!-- MENU -->
+
+                <a href="https://discord.gg/applemusic" role="link" aria-label="Discord" class="ui-component-button ui-component-button-small ui-component-button-primary">Discord</a>
+            </div>
+        </div>
+    </header>
+    <main role="main">
+        <section class="ui-section-hero">
+            <div class="ui-layout-container">
+                <div class="ui-layout-column-6 ui-layout-column-center">
+                    <img src="https://github.com/ciderapp/cider.sh/blob/main/assets/img/Cider-Logo.png?raw=true" width="150" height="150" style="margin-bottom: 10px;">
+                    <h1>Download Cider</h1>
+                    <p class="ui-text-intro">We've got you covered</p>
+                </div>
+            </div>
+            <div id="app"></div>
+        </section>
+    </main>
   </body>
+    <!-- built files will be auto injected -->
+<footer role="contentinfo" class="ui-section-footer">
+    <div class="ui-layout-container">
+        <div class="ui-section-footer__layout ui-layout-flex">
+            <!-- COPYRIGHT -->
+            <a href="https://api.cider.sh" onclick="alert('We don\'t have a domain yet, so take a meme instead!')" class="ui-section-footer--copyright ui-text-note"><small>Made with 💖 by Cider Collective</small></a>
+            <!-- MENU -->
+            <a href="https://github.com/ciderapp/cider" role="link" aria-label="GitHub" class="ui-text-note"><small>GitHub</small></a>
+            <a href="https://cider.sh/" role="link" aria-label="Cider" class="ui-text-note"><small>Desktop</small></a>
+            <a href="https://opencollective.com/ciderapp" role="link" aria-label="Donate" class="ui-text-note"><small>Donate</small></a>
+        </div>
+    </div>
+</footer>
 </html>
