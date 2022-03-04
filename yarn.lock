@@ -948,6 +948,18 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@bit/tomlandau.simple-js.global.is-mobile@0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/tomlandau.simple-js.global.is-mobile/-/tomlandau.simple-js.global.is-mobile-0.0.1.tgz#44cc3df0eed6a3e0023b137684f14fbacc3d35ee"
+  integrity sha1-RMw98O7Wo+ACOxN2hPFPusw9Ne4=
+
+"@bit/tomlandau.simple-js.platform-detection.detect-os@^0.0.2":
+  version "0.0.2"
+  resolved "https://node.bit.dev/tomlandau.simple-js.platform-detection.detect-os/-/tomlandau.simple-js.platform-detection.detect-os-0.0.2.tgz#74f43815fa8c70baff5449f83ed1eefd0fac705e"
+  integrity sha1-dPQ4FfqMcLr/VEn4PtHu/Q+scF4=
+  dependencies:
+    "@bit/tomlandau.simple-js.global.is-mobile" "0.0.1"
+
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.3.tgz#9e42981ef035beb3dd49add17acb96e8ff6f394c"
