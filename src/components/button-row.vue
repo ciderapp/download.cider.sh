@@ -33,7 +33,9 @@ fetch('https://api.github.com/repos/ciderapp/cider-releases/releases')
 
 <template>
   <div> {{ displayName }} releases</div>
-  <div v-if="error">Not Available </div>
+  <div v-if="error"> <b-button-group class="mr-1">
+      <b-button :href="'https://github.com/ciderapp/cider-releases/releases/'" style="margin:5px;" variant="light">Releases</b-button>
+    </b-button-group> </div>
   <div v-else-if="data">
     <b-button-group class="mr-1" v-for="file in data[0].assets" :key="file">
       <b-button :href="file.browser_download_url" style="margin:5px;" variant="light" v-if="!String(file.name).endsWith('.yml') && !String(file.name).endsWith('.blockmap') && !String(file.name).endsWith('.exe') && !showwin">.{{ String(file.name).split('.')[String(file.name).split('.').length - 1]}}</b-button>
