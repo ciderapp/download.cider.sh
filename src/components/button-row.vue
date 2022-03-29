@@ -7,18 +7,22 @@
   });
 
   const { branch, displayName } = toRefs(props);
-  const data = ref(null)
-  const error = ref(null)
+  let data = ref(null)
+  let error = ref(null)
 
 fetch('https://api.github.com/repos/ciderapp/cider-releases/releases')
-    .then((res) => res.json())
-    .then((json) => (data.value = json))
-    .then((data) => {
-      data.forEach((release) => {
-        if (!String(release.name).includes(branch.value)){
-          release.delete()
+    .then(async (res) => {
+      data.value = await res.json()
+      data.value.forEach((release) => {
+        console.log(release)
+        console.log(branch.value)
+        console.log(release.name)
+        console.log(release.name.includes(branch.value))
+        if (!release.name.includes(branch.value)) {
+          data.value.splice(data.value.indexOf(release), 1)
         }
       })
+      console.log(data)
     })
     .catch((err) => (error.value = err))
   let showwin = false

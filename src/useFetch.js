@@ -7,8 +7,8 @@ import { ref } from 'vue'
  * @return: {object} data
  */
 export function useFetch(url) {
-    const data = ref(null)
-    const error = ref(null)
+    let data = ref(null)
+    let error = ref(null)
 
     fetch(url)
         .then((res) => res.json())
