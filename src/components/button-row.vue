@@ -13,16 +13,7 @@
 fetch('https://api.github.com/repos/ciderapp/cider-releases/releases?per_page=1000')
     .then(async (res) => {
       data.value = await res.json()
-      data.value.forEach((release) => {
-        console.log(release)
-        console.log(branch.value)
-        console.log(release.name)
-        console.log(release.name.includes(branch.value))
-        if (!release.name.includes(branch.value)) {
-          data.value.splice(data.value.indexOf(release), 1)
-        }
-      })
-      console.log(data)
+      data.value = data.value.filter(release => release.name.includes(branch.value))
     })
     .catch((err) => (error.value = err))
   let showwin = false
