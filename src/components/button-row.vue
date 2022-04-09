@@ -10,7 +10,7 @@
   let data = ref(null)
   let error = ref(null)
 
-fetch('https://api.github.com/repos/ciderapp/cider-releases/releases')
+fetch('https://api.github.com/repos/ciderapp/cider-releases/releases?per_page=1000')
     .then(async (res) => {
       data.value = await res.json()
       data.value.forEach((release) => {
