@@ -1,7 +1,8 @@
 <template>
   <ms-store-badge  productid="9p21xj9d9g66" size="small"></ms-store-badge>
-  <buttonRow branch="main" display-name="Main"></buttonRow>
-  <buttonRow branch="develop" display-name="Develop"></buttonRow>
+  <buttonRow branch="main" display-name="Nightly"></buttonRow>
+  <a href="https://winstall.app/apps/CiderCollective.Cider"><img class="winget" src="https://custom-icon-badges.herokuapp.com/badge/Get_It_via_Winget_(Nightly)_-100000?style=for-the-badge&logo=winstall"></a>
+  <buttonRow branch="stable" display-name="Stable"></buttonRow>
   <br>
 
 
@@ -27,5 +28,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 50px;
+}
+img.winget{
+  margin-top:-20px;
 }
 </style>
