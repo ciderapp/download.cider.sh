@@ -10,13 +10,13 @@
       <div class="ui-component-card ui-layout-column-4" bis_skin_checked="1" style="height: 430px;">
         <img src="./assets/windows.png" loading="lazy" alt="Windows Icon" class="ui-component-card--image">
         <h4 class="ui-component-card--title">Windows</h4>
-        <p>Stable build most recommended for Windows operating system.</p>
+        <p>Our recommended version for Windows with the best stability.</p>
         <ms-store-badge id="ms-badge1" productid="9p21xj9d9g66" size="small"></ms-store-badge>
       </div>
       <div class="ui-component-card ui-layout-column-4" bis_skin_checked="1" style="height: 430px;">
-      <img src="./assets/cider.png" loading="lazy" alt="Cider Icon" class="ui-component-card--image">
-      <h4 class="ui-component-card--title">Stable Releases</h4>
-        <p>Stable and Very Similar to the Microsoft Store build.</p>
+      <img src="./assets/linux.png" loading="lazy" alt="Linux Icon" class="ui-component-card--image">
+      <h4 class="ui-component-card--title">Linux</h4>
+        <p>Stable Builds for Linux/Unix based distributions.</p>
         <buttonRow branch="stable"></buttonRow>
       </div>
     </div>

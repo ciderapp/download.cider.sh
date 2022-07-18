@@ -51,6 +51,9 @@ fetch(targetURL)
       <b-button href="https://github.com/ciderapp/Cider/releases/download/macos-beta/Cider.pkg" style="margin:5px;" variant="light">.pkg</b-button>
       <b-button href="https://winstall.app/apps/CiderCollective.Cider" style="margin:5px;" variant="light">Winget</b-button>
     </b-button-group>
+    <b-button-group class="mr-1" v-if="branch === 'stable'">
+      <b-button href="https://flathub.org/apps/details/sh.cider.Cider" style="margin:5px;" variant="light">Flatpak</b-button>
+    </b-button-group>
   </div>
   <div v-else><b-spinner label="Spinning"></b-spinner></div>
   <br>
