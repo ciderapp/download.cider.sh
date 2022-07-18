@@ -53,6 +53,7 @@ fetch(targetURL)
     </b-button-group>
     <b-button-group class="mr-1" v-if="branch === 'stable'">
       <b-button href="https://flathub.org/apps/details/sh.cider.Cider" style="margin:5px;" variant="light">Flatpak</b-button>
+      <b-button href="https://aur.archlinux.org/packages/cider-bin" style="margin:5px;" variant="light">AUR</b-button>
     </b-button-group>
   </div>
   <div v-else><b-spinner label="Spinning"></b-spinner></div>
