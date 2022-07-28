@@ -10,7 +10,7 @@ To add a branch to the list of branches, add an `<buttonRow>` element to `src/Ap
 
 `<buttonRow branch="develop" display-name="Develop"></buttonRow>`
  - `branch`: The GitHub branch to fetch releases from. **Required**.
- - `display-name`: The name to display in the list of branches. **Required**.
+ - `display-name`: The name to display in the list of branches. **Optional**.
  
 ---
 
