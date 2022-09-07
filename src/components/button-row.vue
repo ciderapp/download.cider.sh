@@ -10,20 +10,11 @@
   let data = ref(null)
   let error = ref(null)
   let targetURL = "https://api.github.com/repos/ciderapp/cider-releases/releases?per_page=100"
-  if(branch.value === "stable") {
-    targetURL = "https://api.github.com/repos/ciderapp/cider-releases/releases/tags/v1.5.0"
-  }
 fetch(targetURL)
     .then(async (res) => {
       let release = await res.json()
-      
-      if (branch.value === "stable") {
-        
-        data.value = [release];
-      }
-      else {
-        data.value = release.filter(release => release.name.includes(branch.value))
-      }
+      release.sort((a, b) => { return Date.parse(b.published_at) - Date.parse(a.published_at) })
+      data.value = release.filter(release => release.name.includes(branch.value))
       console.log(branch.value, data.value)
     })
     .catch((err) => (error.value = err))
@@ -36,23 +27,38 @@ fetch(targetURL)
 </script>
 
 <template>
-  <div v-if="displayName"> {{ displayName }} releases</div>
+  <div v-if="data"><pre>{{ data[0].tag_name }}</pre></div>
+  <div v-else><b-skeleton width="100%" height="200%"></b-skeleton></div>
   <div v-if="error"> <b-button-group class="mr-1">
       <b-button :href="'https://github.com/ciderapp/cider-releases/releases/'" style="margin:5px;" variant="light">Releases</b-button>
-    </b-button-group> </div>
+    </b-button-group> 
+  </div>
   <div v-else-if="data">
-    <b-button-group class="mr-1" v-for="file in data[0].assets" :key="file">
-      <b-button :href="file.browser_download_url" style="margin:5px;" variant="light" v-if="!String(file.name).endsWith('.yml') && !String(file.name).endsWith('.blockmap') && !String(file.name).endsWith('.exe') && !showwin">.{{ String(file.name).split('.')[String(file.name).split('.').length - 1]}}</b-button>
-      <b-button :href="file.browser_download_url" style="margin:5px;" variant="light" v-if="!String(file.name).endsWith('.yml') && !String(file.name).endsWith('.blockmap') && !String(file.name).includes('winget') && showwin">.{{ String(file.name).split('.')[String(file.name).split('.').length - 1]}}</b-button>
+    <b-button-group class="mr-1 mac" v-for="file in data[0].assets" :key="file">
+        <b-button v-b-tooltip.hover style="margin-inline:5px" title="MacOS DMG File" variant="light" v-if="String(file.name).endsWith('.dmg')">DMG</b-button>
+        <b-button v-b-tooltip.hover style="margin-inline:5px" title="MacOS PKG File" variant="light" v-if="String(file.name).endsWith('.pkg')">PKG</b-button>
     </b-button-group>
+    <b-button-group class="mr-1 linux" v-for="file in data[0].assets" :key="file">
+      <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux Debian Package" variant="light" v-if="String(file.name).endsWith('.deb')">Debian</b-button>
+      <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux App Image" variant="light" v-if="String(file.name).endsWith('.AppImage')">AppImage</b-button>
+      <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux Snap Package" variant="light" v-if="String(file.name).endsWith('.snap')">Snap</b-button>
+    </b-button-group>
+      <!-- <b-button :href="file.browser_download_url" style="margin:5px;" variant="light" v-if="!String(file.name).endsWith('.yml') && !String(file.name).endsWith('.blockmap') && !String(file.name).endsWith('.exe') && !showwin">.{{ String(file.name).split('.')[String(file.name).split('.').length - 1]}}</b-button> -->
+      <!-- <b-button :href="file.browser_download_url" style="margin:5px;" variant="light" v-if="!String(file.name).endsWith('.yml') && !String(file.name).endsWith('.blockmap') && !String(file.name).includes('winget') && showwin">.{{ String(file.name).split('.')[String(file.name).split('.').length - 1]}}</b-button> -->
     <br>
-    <b-button-group class="mr-1" v-if="branch === 'main'">
-      <b-button href="https://winstall.app/apps/CiderCollective.Cider" style="margin:5px;" variant="light">Winget</b-button>
-    </b-button-group>
-    <b-button-group class="mr-1" v-if="branch === 'stable'">
-      <b-button href="https://flathub.org/apps/details/sh.cider.Cider" style="margin:5px;" variant="light">Flatpak</b-button>
-      <b-button href="https://aur.archlinux.org/packages/cider-bin" style="margin:5px;" variant="light">AUR</b-button>
-    </b-button-group>
+    <div class="extras" v-if="branch === 'main'" style="display:flex;gap:10px;justify-content:center;margin-block:10px;">
+      <a href="https://aur.archlinux.org/packages/cider-git"> <img src="https://img.shields.io/badge/AUR-100000?style=for-the-badge&logo=archlinux"></a>
+      <a href="https://winstall.app/apps/CiderCollective.Cider.Nightly"> <img src="https://custom-icon-badges.herokuapp.com/badge/Winget_-100000?style=for-the-badge&logo=winstall"></a>  
+    </div>
+    <div class="extras linux" v-if="branch === 'stable'" style="display:flex;gap:10px;justify-content:center;margin-block:10px;">
+      <a href="https://flathub.org/apps/details/sh.cider.Cider"> <img src="https://img.shields.io/badge/-Flathub-100000?style=for-the-badge&logo=flathub"></a> 
+      <a href="https://aur.archlinux.org/packages/cider"> <img src="https://img.shields.io/badge/AUR-100000?style=for-the-badge&logo=archlinux"></a>
+    </div>
+    
+    <div class="extras windows" v-if="branch === 'stable'" style="display:flex;gap:10px;justify-content:center;">
+      <a href="https://community.chocolatey.org/packages/cider"> <img src="https://custom-icon-badges.herokuapp.com/badge/Chocolatey_-100000?style=for-the-badge&logo=chocolatey"></a>
+      <a href="https://winstall.app/apps/CiderCollective.Cider"> <img src="https://custom-icon-badges.herokuapp.com/badge/Winget_-100000?style=for-the-badge&logo=winstall"></a>  
+    </div>
   </div>
   <div v-else><b-spinner label="Spinning"></b-spinner></div>
   <br>
@@ -64,3 +70,9 @@ export default {
   name: "button-row",
 }
 </script>
+
+<style scoped>
+  .mr-1{
+    margin-block: 5px;
+  }
+  </style>
