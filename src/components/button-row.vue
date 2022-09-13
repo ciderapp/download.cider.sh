@@ -35,13 +35,13 @@ fetch(targetURL)
   </div>
   <div v-else-if="data">
     <b-button-group class="mr-1 mac" v-for="file in data[0].assets" :key="file">
-        <b-button v-b-tooltip.hover style="margin-inline:5px" title="MacOS DMG File" variant="light" v-if="String(file.name).endsWith('.dmg')">DMG</b-button>
-        <b-button v-b-tooltip.hover style="margin-inline:5px" title="MacOS PKG File" variant="light" v-if="String(file.name).endsWith('.pkg')">PKG</b-button>
+        <b-button v-b-tooltip.hover style="margin-inline:5px" title="MacOS DMG File" variant="light" v-if="String(file.name).endsWith('.dmg')" :href="file.browser_download_url">DMG</b-button>
+        <b-button v-b-tooltip.hover style="margin-inline:5px" title="MacOS PKG File" variant="light" v-if="String(file.name).endsWith('.pkg')" :href="file.browser_download_url">PKG</b-button>
     </b-button-group>
     <b-button-group class="mr-1 linux" v-for="file in data[0].assets" :key="file">
-      <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux Debian Package" variant="light" v-if="String(file.name).endsWith('.deb')">Debian</b-button>
-      <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux App Image" variant="light" v-if="String(file.name).endsWith('.AppImage')">AppImage</b-button>
-      <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux Snap Package" variant="light" v-if="String(file.name).endsWith('.snap')">Snap</b-button>
+      <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux Debian Package" variant="light" v-if="String(file.name).endsWith('.deb')" :href="file.browser_download_url">Debian</b-button>
+      <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux App Image" variant="light" v-if="String(file.name).endsWith('.AppImage')" :href="file.browser_download_url">AppImage</b-button>
+      <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux Snap Package" variant="light" v-if="String(file.name).endsWith('.snap')"  :href="file.browser_download_url">Snap</b-button>
     </b-button-group>
       <!-- <b-button :href="file.browser_download_url" style="margin:5px;" variant="light" v-if="!String(file.name).endsWith('.yml') && !String(file.name).endsWith('.blockmap') && !String(file.name).endsWith('.exe') && !showwin">.{{ String(file.name).split('.')[String(file.name).split('.').length - 1]}}</b-button> -->
       <!-- <b-button :href="file.browser_download_url" style="margin:5px;" variant="light" v-if="!String(file.name).endsWith('.yml') && !String(file.name).endsWith('.blockmap') && !String(file.name).includes('winget') && showwin">.{{ String(file.name).split('.')[String(file.name).split('.').length - 1]}}</b-button> -->
