@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <script src="https://kit.fontawesome.com/f414fc1732.js" crossorigin="anonymous"></script>
     <!-- META -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Cider Collective">
-    <meta name="description" content="Download the open source and community oriented Apple Music client today! ">
     <meta name="referrer" content="unsafe-url">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ff2b51" data-react-helmet="true">
+    <meta name="description"
+        content="Download a new cross-platform Apple Music experience based on Electron and Vue.js written from scratch with performance in mind. 🚀">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://download.cider.sh/">
+    <meta property="og:site_name" content="download.cider.sh">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cider || Download Cider">
+    <meta property="og:description"
+        content="Download a new cross-platform Apple Music experience based on Electron and Vue.js written from scratch with performance in mind. 🚀">
+    <meta property="og:image" content="https://cider.sh/assets/img/frontpage-scn.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@UseCider">
+    <meta property="twitter:domain" content="download.cider.sh">
+    <meta property="twitter:url" content="https://download.cider.sh/">
+    <meta name="twitter:title" content="Cider || Download Cider">
+    <meta name="twitter:description"
+        content="Download a new cross-platform Apple Music experience based on Electron and Vue.js written from scratch with performance in mind. 🚀">
+    <meta name="twitter:image" content="https://cider.sh/assets/img/frontpage-scn.png">
     <!-- SPEED -->
     <link rel="preconnect" href="https://res.cloudinary.com">
     <link rel="dns-prefetch" href="https://res.cloudinary.com">
@@ -20,7 +42,8 @@
     <!-- LINK -->
     <link rel="me" href="https://github.com/ciderapp">
     <link rel="canonical" href="https://cider.sh">
-    <link rel="icon" type="image/png" href="https://github.com/ciderapp/cider.sh/blob/main/assets/img/Cider-Logo.png?raw=true" sizes="48x48">
+    <link rel="icon" type="image/png"
+        href="https://github.com/ciderapp/cider.sh/blob/main/assets/img/Cider-Logo.png?raw=true" sizes="48x48">
     <!-- PERFORMANCE -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <link rel="preload" as="style" href="https://cider.sh/style.css">
@@ -35,20 +58,24 @@
     <!-- Hooked to `quacksire@ducks.win` (ping for access) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N16FES8W75"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-N16FES8W75');
+        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-N16FES8W75');
     </script>
 </head>
-  <body>
+
+<body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+                Please enable it to continue.</strong>
     </noscript>
     <header role="banner" class="ui-section-header">
         <div class="ui-layout-container">
             <div class="ui-section-header__layout ui-layout-flex">
                 <!-- LOGO -->
-                <a href="https://cider.sh" role="link" aria-label="Remote" class="ui-component-button ui-component-button-small ui-component-button-primary">Home</a>
+                <a href="https://cider.sh" role="link" aria-label="Remote"
+                    class="ui-component-button ui-component-button-small ui-component-button-primary">Home</a>
                 <!-- MENU -->
-                <a href="https://discord.gg/applemusic" role="link" aria-label="Discord" class="ui-component-button ui-component-button-small ui-component-button-primary">Discord</a>
+                <a href="https://discord.gg/applemusic" role="link" aria-label="Discord"
+                    class="ui-component-button ui-component-button-small ui-component-button-primary">Discord</a>
             </div>
         </div>
     </header>
@@ -56,7 +83,8 @@
         <section class="ui-section-hero">
             <div style="margin-top: -110px;" class="ui-layout-container">
                 <div class="ui-layout-column-6 ui-layout-column-center">
-                    <img src="https://github.com/ciderapp/cider.sh/blob/main/assets/img/Cider-Logo.png?raw=true" width="150" height="150" style="margin-bottom: 10px;">
+                    <img src="https://github.com/ciderapp/cider.sh/blob/main/assets/img/Cider-Logo.png?raw=true"
+                        width="150" height="150" style="margin-bottom: 10px;">
                     <h1><b>Download Cider</b></h1>
                     <p class="ui-text-intro">Now for the fun part, pick your flavor.</p>
                 </div>
@@ -64,18 +92,22 @@
             <div id="app"></div>
         </section>
     </main>
-  </body>
-    <!-- built files will be auto injected -->
+</body>
+<!-- built files will be auto injected -->
 <footer role="contentinfo" class="ui-section-footer">
     <div class="ui-layout-container">
         <div class="ui-section-footer__layout ui-layout-flex">
             <!-- COPYRIGHT -->
-            <a href="https://api.cider.sh" onclick="alert('We don\'t have a domain yet, so take a meme instead!')" class="ui-section-footer--copyright ui-text-note"><small>Made with 💖 by Cider Collective</small></a>
+            <a href="https://api.cider.sh" onclick="alert('We don\'t have a domain yet, so take a meme instead!')"
+                class="ui-section-footer--copyright ui-text-note"><small>Made with 💖 by Cider Collective</small></a>
             <!-- MENU -->
-            <a href="https://github.com/ciderapp/cider" role="link" aria-label="GitHub" class="ui-text-note"><small>GitHub</small></a>
+            <a href="https://github.com/ciderapp/cider" role="link" aria-label="GitHub"
+                class="ui-text-note"><small>GitHub</small></a>
             <a href="https://cider.sh/" role="link" aria-label="Cider" class="ui-text-note"><small>Desktop</small></a>
-            <a href="https://opencollective.com/ciderapp" role="link" aria-label="Donate" class="ui-text-note"><small>Donate</small></a>
+            <a href="https://opencollective.com/ciderapp" role="link" aria-label="Donate"
+                class="ui-text-note"><small>Donate</small></a>
         </div>
     </div>
 </footer>
+
 </html>

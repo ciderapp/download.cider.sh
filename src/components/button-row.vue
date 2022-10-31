@@ -27,7 +27,7 @@ fetch(targetURL)
 </script>
 
 <template>
-  <div v-if="data"><pre>{{ data[0].tag_name }}</pre></div>
+  <div v-if="data"><pre>{{ data[0].tag_name.slice(0, -3)+Number(data[0].tag_name.slice(-3)) }}</pre></div>
   <div v-else><b-skeleton width="100%" height="200%"></b-skeleton></div>
   <div v-if="error"> <b-button-group class="mr-1">
       <b-button :href="'https://github.com/ciderapp/cider-releases/releases/'" style="margin:5px;" variant="light">Releases</b-button>
