@@ -43,9 +43,9 @@ fetch(targetURL)
       <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux App Image" variant="light" v-if="file.name.toString().endsWith('.AppImage')" :href="file.browser_download_url">AppImage</b-button>
       <b-button v-b-tooltip.hover style="margin-inline:5px" title="Linux Snap Package" variant="light" v-if="file.name.toString().endsWith('.snap')"  :href="file.browser_download_url">Snap</b-button>
     </b-button-group>
-    <b-button-group class="mr-1 windows" v-for="file in data[0].assets" :key="file">
+    <!-- <b-button-group class="mr-1 windows" v-for="file in data[0].assets" :key="file">
       <b-button v-b-tooltip.hover style="margin-inline:5px" title="Windows Executable" variant="light" v-if="!file.name.toString().includes('winget') && file.name.toString().endsWith(`.exe`)" :href="file.browser_download_url">Exe</b-button>
-    </b-button-group>
+    </b-button-group> -->
       <!-- <b-button :href="file.browser_download_url" style="margin:5px;" variant="light" v-if="!String(file.name).endsWith('.yml') && !String(file.name).endsWith('.blockmap') && !String(file.name).endsWith('.exe') && !showwin">.{{ String(file.name).split('.')[String(file.name).split('.').length - 1]}}</b-button> -->
       <!-- <b-button :href="file.browser_download_url" style="margin:5px;" variant="light" v-if="!String(file.name).endsWith('.yml') && !String(file.name).endsWith('.blockmap') && !String(file.name).includes('winget') && showwin">.{{ String(file.name).split('.')[String(file.name).split('.').length - 1]}}</b-button> -->
     <br>
@@ -57,7 +57,6 @@ fetch(targetURL)
       <a href="https://flathub.org/apps/details/sh.cider.Cider"> <img src="https://img.shields.io/badge/-Flathub-100000?style=for-the-badge&logo=flathub"></a> 
       <a href="https://aur.archlinux.org/packages/cider"> <img src="https://img.shields.io/badge/AUR-100000?style=for-the-badge&logo=archlinux"></a>
     </div>
-    
     <div class="extras windows" v-if="branch === 'stable'" style="display:flex;gap:10px;justify-content:center;">
       <a href="https://community.chocolatey.org/packages/cider"> <img src="https://custom-icon-badges.herokuapp.com/badge/Chocolatey_-100000?style=for-the-badge&logo=chocolatey"></a>
       <a href="https://winstall.app/apps/CiderCollective.Cider"> <img src="https://custom-icon-badges.herokuapp.com/badge/Winget_-100000?style=for-the-badge&logo=winstall"></a>  
